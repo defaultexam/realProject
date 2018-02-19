@@ -14,14 +14,14 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><img
+				<a class="navbar-brand" href="/"><img
 					src="/resources/images/logo.png" class="img-responsive" width="30px" height="30px" alt="Logo"></a>
 			</div>
 			<!-- COLLAPSIBLE NAVBAR -->
 			<div class="collapse navbar-collapse" id="alignment-example">
 				<!-- Links -->
 				<ul class="nav navbar-nav navbar-left">
-					<li><a href="#">기능 1</a></li>
+					<li><a href="login">로그인</a></li>
 					<li><a href="#">기능 2</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
