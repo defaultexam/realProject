@@ -2,28 +2,37 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-<head>
-<link href="/resources/include/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<style>
-body {
-	width: 1%;
-}
-</style>
-</head>
-
 <body>
-	<div class="container">
-		<div role="navigation">
-			<ul class="nav nav-pills nav-stacked">
-				<li class="nav-item"><a class="nav-link active" href="#">Active</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="#">아씨발</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">하씨발</a></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
-				</li>
-			</ul>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<!-- BRAND -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#alignment-example"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img
+					src="/resources/images/logo.png" class="img-responsive" width="30px" height="30px" alt="Logo"></a>
+			</div>
+			<!-- COLLAPSIBLE NAVBAR -->
+			<div class="collapse navbar-collapse" id="alignment-example">
+				<!-- Links -->
+				<ul class="nav navbar-nav navbar-left">
+					<li><a href="#">기능 1</a></li>
+					<li><a href="#">기능 2</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">소개 <span class="caret"></span></a>
+						<ul class="dropdown-menu" aria-labelledby="about-us">
+							<li><a href="#">드롭다운 1</a></li>
+							<li><a href="#">드롭다운 2</a></li>
+							<li><a href="#">드롭다운 3</a></li>
+						</ul></li>
+				</ul>
+			</div>
 		</div>
-	</div>
-	<script src="/resources/include/dist/js/bootstrap.min.js"></script>
+	</nav>
 </body>
