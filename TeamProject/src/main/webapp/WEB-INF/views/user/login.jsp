@@ -10,7 +10,7 @@
 			<h1 class="panel-title">로그인</h1>
 		</div>
 		<div class="panel-body">
-			<form action="" class="form-inline">
+			<form action="" class="form">
 				<div class="form-group">
 					<label for="input_id">아이디</label> <input type="text"
 						class="form-control" id="input_id" name="input_id"

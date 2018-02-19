@@ -22,7 +22,7 @@
 				<!-- Links -->
 				<ul class="nav navbar-nav navbar-left">
 					<li><a href="login">로그인</a></li>
-					<li><a href="#">기능 2</a></li>
+					<li><a href="register">회원가입</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">소개 <span class="caret"></span></a>
