@@ -25,8 +25,7 @@
 			</form>
 		</div>
 	</div>
-	<script
-		src="/resources/include/dist/assets/js/vendor/jquery-slim.min.js"></script>
+	<script src="/resources/include/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="/resources/include/js/common.js"></script>
 	<script type="text/javascript" src="/resources/include/js/login.js"></script>
 </body>

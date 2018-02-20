@@ -2,21 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.restaurant.user.register.dao.MemberDao">
-	<!-- <select id="securitySelect" parameterType="String" resultType="security"> 
-		select userid, salt from security where userId=#{userId} </select> <insert 
-		id="securityInsert" parameterType="security"> insert into security(userid, 
-		salt) values(#{userId}, #{salt}) </insert> <delete id="securityDelete" parameterType="String"> 
-		delete from security where userId = #{userId} </delete> -->
+<mapper namespace="com.restaurant.user.member.dao.MemberDAO">
+	<select id="securitySelect" parameterType="String" resultType="security">
+		select userid, salt from security
+		where userId=#{userId}
+	</select>
+	<insert id="securityInsert" parameterType="security">
+		insert into
+		security(userid, salt)
+		values(#{userId}, #{salt})
+	</insert>
+	<delete id="securityDelete" parameterType="String">
+		delete from security
+		where userId = #{userId}
+	</delete>
 
 	<select id="memberSelect" parameterType="String" resultType="member">
-		select idx, userid, userpw, username, pinno, email, phone
+		select member_no, id, password, name, gender, birthday,
+		email, phone,
+		address, marriage, weddingdate, job, agreement1,
+		agreement2, agreement3
 		from
-		spring_member
-		where userid = #{userId}
+		member
+		where id = #{id}
 	</select>
-
-
 	<insert id="memberInsert" parameterType="member">
 		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
 			select
@@ -29,8 +38,6 @@
 		#{gender}, #{birthday}, #{email}, #{phone}, #{address}, #{marriage},
 		#{weddingdate}, #{job}, #{agreement1}, #{agreement2}, #{agreement3})
 	</insert>
-
-
 	<update id="memberUpdate" parameterType="member">
 		update spring_member set
 		<if test="userPw != null and userPw != ''">
@@ -38,11 +45,8 @@
 		</if>
 		phone=#{phone}, email=#{email} where userId=#{userId}
 	</update>
-
-
 	<delete id="memberDelete" parameterType="String">
 		delete from
 		spring_member where userId = #{userId}
 	</delete>
-
 </mapper>

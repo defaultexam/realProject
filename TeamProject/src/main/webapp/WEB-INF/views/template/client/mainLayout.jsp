@@ -53,8 +53,7 @@
 		src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script
 		src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
-	<script
-		src="/resources/include/dist/assets/js/vendor/jquery-slim.min.js"></script>
+	<script src="/resources/include/js/jquery-3.3.1.min.js"></script>
 	<script src="/resources/include/dist/assets/js/vendor/popper.min.js"></script>
 	<script src="/resources/include/dist/js/bootstrap.min.js"></script>
 </body>

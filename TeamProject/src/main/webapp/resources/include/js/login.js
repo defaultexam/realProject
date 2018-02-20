@@ -22,7 +22,7 @@ $(function() {
 	});
 	// 로그인 버튼 클릭 시 처리 이벤트
 	$("#loginBtn").click(function() {
-/*		if (!formCheck($('#input_id'), $('.error:eq(0)'), "아이디를")) {
+		if (!formCheck($('#input_id'), $('.error:eq(0)'), "아이디를")) {
 			return;
 		} else if (!inputVerify(0, '#input_id', '.error:eq(0)')) {
 			return;
@@ -30,12 +30,12 @@ $(function() {
 			return;
 		} else if (!inputVerify(1, '#input_pass', '.error:eq(1)')) {
 			return;
-		} else {*/
+		} else {
 			$("#loginForm").attr({
 				"method" : "POST",
 				"action" : "/login"
 			});
 			$("#loginForm").submit();
-	/*	}*/
+		}
 	});
 });
