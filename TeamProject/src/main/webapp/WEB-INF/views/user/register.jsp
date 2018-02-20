@@ -4,17 +4,16 @@
 <%@ page trimDirectiveWhitespaces="true"%>
 <meta charset="UTF-8" />
 <head>
+<link href="/resources/include/css/datepicker.css" rel="stylesheet">
 <style>
 .tdsize {
 	width: 120px;
 	height: 40px;
 }
 </style>
-<link href="/resources/include/css/datepicker.css" rel="stylesheet">
 </head>
 <body>
-	<!-- date-picker-3 -->
-	<form action="" class="form-inline">
+	<form action="registerForm" class="form-inline" method="post">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
@@ -23,7 +22,7 @@
 							<td class="tdsize"><label for="input_id">아이디*</label></td>
 							<td><input type="text" class="form-control" id="input_id"
 								name="input_id" placeholder="아이디">
-								<button type="button" class="btn btn-default">중복체크</button></td>
+								<button type="button" id="idConfirmBtn" class="btn btn-default">중복체크</button></td>
 						</tr>
 					</table>
 				</div>
@@ -193,7 +192,18 @@
 					</table>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<input type="button" value="가입" id="registerConfirm"
+						class="btn btn-outline-secondary" /> <input type="button"
+						value="취소" id="registerCancel" class="btn btn-outline-secondary" />
+				</div>
+			</div>
 		</div>
 	</form>
 	<script src="/resources/include/js/carbon.min.js"></script>
+	<script
+		src="/resources/include/dist/assets/js/vendor/jquery-slim.min.js"></script>
+	<script type="text/javascript" src="/resources/include/js/common.js"></script>
+	<script type="text/javascript" src="/resources/include/js/register.js"></script>
 </body>

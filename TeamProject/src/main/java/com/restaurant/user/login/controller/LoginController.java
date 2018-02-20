@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 	Logger logger = Logger.getLogger(LoginController.class);
 
-	/**************************************************************
-	 * 로그인 화면 보여주기 위한 메서드
-	 **************************************************************/
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String login() {
 		logger.info("login get 호출 성공");
+		return "user/loginpage";
+	}
+
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public String loginCheck() {
+		logger.info("login POST 호출 성공");
 		return "user/loginpage";
 	}
 }
