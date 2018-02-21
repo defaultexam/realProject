@@ -19,12 +19,12 @@ public class RegisterController {
 	Logger logger = Logger.getLogger(RegisterController.class);
 	@Autowired
 	private MemberService memberService;
-	
+
 	/* 주소/register (GET 메소드) */
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String login() {
 		logger.info("register get 호출 성공");
-		return "user/registerpage";
+		return "registerpage";
 	}
 
 	/* 사용자 아이디 중복 체크 메서드 */
@@ -38,24 +38,25 @@ public class RegisterController {
 	/* 주소 /register/confirm (POST 메소드) */
 	@RequestMapping(value = "/confirm", method = RequestMethod.POST)
 	public ModelAndView memberInsert(@ModelAttribute MemberVO mvo) {
-		logger.info("/confirm post 방식에 의한 메서드 호출 성공");	
+		logger.info("/confirm post 방식에 의한 메서드 호출 성공");
 		ModelAndView mav = new ModelAndView();
-		/*int result = 0;
+		int result = 3;
 		result = memberService.memberInsert(mvo);
 		switch (result) {
 		case 1:
 			mav.addObject("errCode", 1); // userId already exist
-			mav.setViewName("member/join");
+			mav.setViewName("register");
 			break;
 		case 3:
 			mav.addObject("errCode", 3);
-			mav.setViewName("member/join_success"); // success to add new member; move to login page
+			mav.setViewName("processpage"); // success to add new member; move to login page
+			logger.info("회원가입 성공, processPage로 이동 완료.");
 			break;
 		default:
 			mav.addObject("errCode", 2); // failed to add new member
-			mav.setViewName("member/join");
+			mav.setViewName("register");
 			break;
-		}*/
+		}
 		return mav;
 	}
 }

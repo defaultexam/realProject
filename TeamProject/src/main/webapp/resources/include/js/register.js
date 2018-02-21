@@ -55,7 +55,11 @@ $(function() {
 	$('#id, #password, #repassword, #name, #birthday, #email, #phone, #address').bind("focus", function() {
 		var idx = $("#id, #password, #repassword, #name, #birthday, #email, #phone, #address").index(this);
 		$(this).parents(".form-group").find(".error").html(message[idx]);
+		$(this).parents(".form-group").find(".error").css("color", "#000000");
 	});
+	let iddiv = document.getElementById("iddiv");
+	let passdiv = document.getElementById("passdiv");
+	let repassdiv = document.getElementById("repassdiv");
 	$("#idConfirmBtn").click(
 		function() {
 			if (!formCheck($('#id'), $('.error:eq(0)'), "아이디를"))
@@ -76,17 +80,79 @@ $(function() {
 								".idclass").find(
 								".error").html(
 								"현재 사용 중인 아이디입니다.");
+							iddiv.classList.add("form-group", "has-warning");
 						} else if (resultData == "2") {
 							$("#id").parents(
 								".idclass").find(
 								".error").html(
 								"사용 가능한 아이디입니다.");
 							idConfirm = 2;
+							iddiv.classList.remove('has-error');
+							iddiv.classList.remove('has-warning');
+							iddiv.classList.add("form-group", "has-success");
 						}
 					}
 				});
 			}
 		});
+
+	$("#id").bind("blur", function() {
+		if (!formCheck($('#id'), $('.error:eq(0)'), "아이디를")) {
+			iddiv.classList.add("form-group", "has-error");
+			return;
+		} else if (!inputVerify(0, '#id', '.error:eq(0)')) {
+			iddiv.classList.add("form-group", "has-error");
+			return;
+		}
+	});
+	$("#password").bind("blur", function() {
+
+		if (!formCheck($('#password'), $('.error:eq(1)'), "비밀번호를")) {
+			passdiv.classList.add("form-group", "has-error");
+			return;
+		} else if (!inputVerify(1, '#password', '.error:eq(1)')) {
+			passdiv.classList.add("form-group", "has-error");
+			return;
+		} else if (!idPwdCheck())
+			return;else {
+			passdiv.classList.remove('has-error');
+			passdiv.classList.add("form-group", "has-warning");
+		}
+	});
+	$("#repassword").bind("blur", function() {
+		if (!formCheck($('#repassword'), $('.error:eq(2)'),
+				"비밀번호 확인을")) {
+			repassdiv.classList.add("form-group", "has-error");
+			return;
+		} else if (!inputVerify(1, '#repassword', '.error:eq(2)')) {
+			repassdiv.classList.add("form-group", "has-error");
+			return;
+		} else if (!passwordCheck()) {
+			repassdiv.classList.add("form-group", "has-error");
+			return;
+		} else {
+			passdiv.classList.remove('has-warning');
+			repassdiv.classList.remove('has-error');
+			passdiv.classList.add("form-group", "has-success");
+			repassdiv.classList.add("form-group", "has-success");
+		}
+	});
+	$("#name").bind("blur", function() {
+		if (!formCheck($('#name'), $('.error:eq(3)'), "이름을"))
+			return;
+	});
+	$("#email").bind("blur", function() {
+		if (!formCheck($('#email1'), $('.error:eq(4)'), "이메일 주소를"))
+			return;
+	});
+	$("#phone").bind("blur", function() {
+		if (!formCheck($('#phone'), $('.error:eq(5)'), "전화번호를"))
+			return;
+	});
+	$("#address").bind("blur", function() {
+		if (!formCheck($('#address'), $('.error:eq(6)'), "주소를"))
+			return;
+	});
 	/* 확인 버튼 클릭 시 처리 이벤트 */
 	$("#registerConfirm").click(
 		function() {

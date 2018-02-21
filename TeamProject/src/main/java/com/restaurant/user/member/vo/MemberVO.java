@@ -2,50 +2,42 @@ package com.restaurant.user.member.vo;
 
 import java.sql.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class MemberVO {
-	private int member_no;
-	private String id;
-	private String password;
-	private String name;
-	private int gender;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date birthday;
-	private String email;
-	private String phone;
-	private int agreement1;
-	private int agreement2;
-	private int agreement3;
-	private String condition;
-	private String rank;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date member_date;
-	private int marriage;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date weddingdate;
-	private String job;
-	private String address;
-	private String memo;
-	private int point;
-	private String b_coupon_no;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date b_coupon_start;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date b_coupon_end;
-	private String m_coupon_no;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date m_coupon_start;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date m_coupon_end;
-	private String v_coupon_no;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date v_coupon_start;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date v_coupon_end;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date member_outdate;
-	private int password_confirm;
+	private int member_no = 9999;
+	private String id = "";
+	private String password = "";
+	private String name = "";
+	private int gender = 0;
+	private Date birthday = null;
+	private String email = "";
+	private String phone = "";
+	private int agreement1 = 0;
+	private int agreement2 = 0;
+	private int agreement3 = 0;
+	private String condition = "";
+	private String rank = "";
+	private Date member_date = null;
+	private int marriage = 0;
+	private Date weddingdate = null;
+	private String job = "";
+	private String address = "";
+	private String memo = "";
+	private int point = 0;
+	private String b_coupon_no = "";
+	private Date b_coupon_start = null;
+	private Date b_coupon_end = null;
+	private String m_coupon_no = "";
+	private Date m_coupon_start = null;
+	private Date m_coupon_end = null;
+	private String v_coupon_no = "";
+	private Date v_coupon_start = null;
+	private Date v_coupon_end = null;
+	private Date member_outdate = null;
+	private int password_confirm = 0;
+
+	public MemberVO() {
+		super();
+	}
 
 	public int getMember_no() {
 		return member_no;
@@ -309,6 +301,4 @@ public class MemberVO {
 				+ member_outdate + ", password_confirm=" + password_confirm + "]";
 	}
 
-	
-	
 }

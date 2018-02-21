@@ -1,49 +1,35 @@
 package com.restaurant.user.login.vo;
 
 public class LoginVO extends LoginHistory {
-	private String userId = "";
-	private String userPw = "";
-	private String userName = "";
+	private String id = "";
+	private String password = "";
+	private String name = "";
 
 	public LoginVO() {
 	}
 
-	public LoginVO(String userId, String userPw, String userName) {
-		super();
-		this.userId = userId;
-		this.userPw = userPw;
-		this.userName = userName;
+	public String getId() {
+		return id;
 	}
 
-	public String getUserId() {
-		return userId;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public String getPassword() {
+		return password;
 	}
 
-	public String getUserPw() {
-		return userPw;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public void setUserPw(String userPw) {
-		this.userPw = userPw;
+	public String getName() {
+		return name;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	@Override
-	public String toString() {
-		return "LoginVO [userId=" + userId + ", userPw=" + userPw + ", userName=" + userName + ", getIdx()=" + getIdx()
-				+ ", getRetry()=" + getRetry() + ", getLastFailedLogin()=" + getLastFailedLogin()
-				+ ", getLastSuccessedLogin()=" + getLastSuccessedLogin() + ", getClientIP()=" + getClientIP() + "]";
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

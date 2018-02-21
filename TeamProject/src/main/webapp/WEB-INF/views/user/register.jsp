@@ -13,12 +13,12 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<form id="registerForm" class="form-inline" method="post">
+		<form id="registerForm" class="form-inline">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 form-group" id="iddiv">
 					<table>
 						<tr class="idclass">
-							<td class="tdsize"><label for="input_id">아이디*</label></td>
+							<td class="tdsize"><label for="id">아이디*</label></td>
 							<td><input type="text" class="form-control" id="id"
 								name="id" placeholder="아이디" required="required">
 								<button type="button" id="idConfirmBtn" class="btn btn-default">중복체크</button>
@@ -28,25 +28,27 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 form-group" id="passdiv">
 					<table>
 						<tr>
 							<td class="tdsize"><label for="password">비밀번호*</label></td>
-							<td><input type="text" class="form-control" id="password"
-								name="password" placeholder="비밀번호" required="required">
+							<td><input type="password" class="form-control"
+								id="password" name="password" placeholder="비밀번호"
+								required="required">
 								<p class="form-control-static error"></p></td>
 						</tr>
 					</table>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 form-group" id="repassdiv">
 					<table>
 						<tr>
 							<td class="tdsize"><label for="input_repassword">비밀번호
 									확인*</label></td>
-							<td><input type="text" class="form-control" id="repassword"
-								name="repassword" placeholder="비밀번호 확인" required="required">
+							<td><input type="password" class="form-control"
+								id="repassword" name="repassword" placeholder="비밀번호 확인"
+								required="required" onchange="{passwordCheck(); idPwdCheck();}">
 								<p class="form-control-static error"></p></td>
 						</tr>
 					</table>
@@ -69,10 +71,10 @@
 					<table>
 						<tr>
 							<td class="tdsize"><label for="gender">성별*</label></td>
-							<td><input type="radio" name="gender" value="남자"
+							<td><input type="radio" id="gender" name="gender" value="1"
 								checked="checked" /> 남자
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"
-								name="gender" value="여자" /> 여자</td>
+								name="gender" value="2" /> 여자</td>
 						</tr>
 					</table>
 				</div>
@@ -82,7 +84,8 @@
 					<table>
 						<tr>
 							<td class="tdsize"><label for="birthday">생년월일*</label></td>
-							<td><input type="date" name="birthday" required="required"></td>
+							<td><input type="date" id="birthday" name="birthday"
+								required="required"></td>
 						</tr>
 					</table>
 				</div>
@@ -93,10 +96,12 @@
 						<tr>
 							<td class="tdsize"><label for="email1">이메일*</label></td>
 							<td><input type="text" class="form-control" id="email1"
-								name="email1" placeholder="" required="required"> <label
-								for="email2">@</label> <input type="text" class="form-control"
-								id="email2" name="email2" placeholder="" required="required">
-								<p class="form-control-static error"></p></td>
+								name="email1" placeholder="" required="required"
+								onblur="checkInput();"> <label for="email2">@</label> <input
+								type="text" class="form-control" id="email2" name="email2"
+								placeholder="" required="required">
+								<p class="form-control-static error"></p> <input type="hidden"
+								id="email" name="email"></td>
 						</tr>
 					</table>
 				</div>
@@ -131,10 +136,10 @@
 					<table>
 						<tr>
 							<td class="tdsize"><label for="marriage">결혼여부</label></td>
-							<td><input type="radio" name="marriage" value="미혼"
-								checked="checked" /> 미혼
+							<td><input type="radio" id="marriage" name="marriage"
+								value="1" checked="checked" /> 미혼
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"
-								name="marriage" value="기혼" /> 기혼</td>
+								name="marriage" value="2" /> 기혼</td>
 						</tr>
 					</table>
 				</div>
@@ -143,8 +148,9 @@
 				<div class="col-md-12">
 					<table>
 						<tr>
-							<td class="tdsize"><label for="marrydate">결혼 기념일</label></td>
-							<td><input type="date" name="marrydate"></td>
+							<td class="tdsize"><label for="weddingdate">결혼 기념일</label></td>
+							<td><input type="date" value="1990-01-01" id="weddingdate"
+								name="weddingdate"></td>
 						</tr>
 					</table>
 				</div>

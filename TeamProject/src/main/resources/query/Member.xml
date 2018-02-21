@@ -3,17 +3,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.restaurant.user.member.dao.MemberDAO">
+
 	<select id="securitySelect" parameterType="String" resultType="security">
-		select userid, salt from security
+		select userid, salt from security_user
 		where userId=#{userId}
 	</select>
 	<insert id="securityInsert" parameterType="security">
 		insert into
-		security(userid, salt)
+		security_user(userid, salt)
 		values(#{userId}, #{salt})
 	</insert>
 	<delete id="securityDelete" parameterType="String">
-		delete from security
+		delete from
+		security_user
 		where userId = #{userId}
 	</delete>
 
@@ -27,26 +29,26 @@
 		where id = #{id}
 	</select>
 	<insert id="memberInsert" parameterType="member">
-		<selectKey keyProperty="idx" resultType="int" order="BEFORE">
-			select
-			member_seq.nextval from dual
-		</selectKey>
-		insert into member(member_no, id, password, name, gender, birthday,
-		email, phone, address, marriage, weddingdate, job, agreement1,
-		agreement2, agreement3)
-		values(#{idx}, #{id}, #{password}, #{name},
-		#{gender}, #{birthday}, #{email}, #{phone}, #{address}, #{marriage},
-		#{weddingdate}, #{job}, #{agreement1}, #{agreement2}, #{agreement3})
+		insert into
+		member(member_no, id, password, name, gender, birthday,
+		email, phone,
+		address, marriage, weddingdate, job, agreement1,
+		agreement2,
+		agreement3, condition, rank, member_date)
+		values(member_seq.nextval,
+		#{id},
+		#{password}, #{name},
+		#{gender}, #{birthday}, #{email},
+		#{phone},
+		#{address}, #{marriage},
+		#{weddingdate}, #{job},
+		'1', '1',
+		'1', '활동중',
+		'회원', sysdate)
 	</insert>
-	<update id="memberUpdate" parameterType="member">
-		update spring_member set
-		<if test="userPw != null and userPw != ''">
-			userPw=#{userPw},
-		</if>
-		phone=#{phone}, email=#{email} where userId=#{userId}
-	</update>
+	
 	<delete id="memberDelete" parameterType="String">
 		delete from
-		spring_member where userId = #{userId}
+		member where id = #{id}
 	</delete>
 </mapper>

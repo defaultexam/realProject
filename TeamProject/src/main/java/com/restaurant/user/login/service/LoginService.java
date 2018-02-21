@@ -1,11 +1,11 @@
-package com.restaurant.user.login.dao;
+package com.restaurant.user.login.service;
 
 import com.restaurant.user.login.vo.LoginVO;
 
-public interface LoginDAO {
+public interface LoginService {
 	public LoginVO userIdSelect(String userId);
 
-	public LoginVO loginSelect(LoginVO lvo);
+	public LoginVO loginSelect(String userId, String userPw);
 
 	public int loginHistoryInsert(LoginVO lvo);
 

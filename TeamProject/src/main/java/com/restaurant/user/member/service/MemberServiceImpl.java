@@ -45,7 +45,6 @@ public class MemberServiceImpl implements MemberService {
 					mvo.setPassword(new String(OpenCrypt.getSHA256(mvo.getPassword(), sec.getSalt())));
 					memberDAO.memberInsert(mvo);
 					return 3;
-
 				} else {
 					return 2;
 				}
@@ -93,5 +92,5 @@ public class MemberServiceImpl implements MemberService {
 			isSucessCode = 3;
 		}
 		return isSucessCode;
-	}	
+	}
 }
