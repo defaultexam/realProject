@@ -47,7 +47,7 @@ $(function() {
 		"영문,숫자만 가능. 6 ~ 12자로 입력해 주세요",
 		"영문,숫자,특수문자만 가능. 8 ~ 15자 입력해 주세요.",
 		"비밀번호와 비밀번호 확인란은 값이 일치해야 합니다.",
-		"","",
+		"", "",
 		"- 포함 입력해 주세요. 예시) 010-0000-0000" ];
 	$('.error').each(function(index) {
 		$('.error').eq(index).html(message[index]);
@@ -91,7 +91,6 @@ $(function() {
 	$("#registerConfirm").click(
 		function() {
 			// 입력값 체크
-
 			if (!formCheck($('#id'), $('.error:eq(0)'), "아이디를"))
 				return;
 			else if (!inputVerify(0, '#id', '.error:eq(0)'))
@@ -125,8 +124,8 @@ $(function() {
 			} else {
 				$("#email").val($("#email1").val() + "@" + $("#email2").val());
 				$("#registerForm").attr({
-					"method" : "POST",
-					"action" : "/register"
+					"method" : "post",
+					"action" : "/register/confirm"
 				});
 				$("#registerForm").submit();
 			}

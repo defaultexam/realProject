@@ -5,7 +5,6 @@ public class MemberSecurity {
 	private String salt;
 
 	public MemberSecurity() {
-
 	}
 
 	public MemberSecurity(String userid, String salt) {

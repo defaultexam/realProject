@@ -2,12 +2,15 @@ package com.restaurant.user.member.vo;
 
 import java.sql.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class MemberVO {
 	private int member_no;
 	private String id;
 	private String password;
 	private String name;
 	private int gender;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 	private String email;
 	private String phone;
@@ -16,22 +19,31 @@ public class MemberVO {
 	private int agreement3;
 	private String condition;
 	private String rank;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date member_date;
 	private int marriage;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date weddingdate;
 	private String job;
 	private String address;
 	private String memo;
 	private int point;
 	private String b_coupon_no;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date b_coupon_start;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date b_coupon_end;
 	private String m_coupon_no;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date m_coupon_start;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date m_coupon_end;
 	private String v_coupon_no;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date v_coupon_start;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date v_coupon_end;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date member_outdate;
 	private int password_confirm;
 
@@ -283,4 +295,20 @@ public class MemberVO {
 		this.password_confirm = password_confirm;
 	}
 
+	@Override
+	public String toString() {
+		return "MemberVO [member_no=" + member_no + ", id=" + id + ", password=" + password + ", name=" + name
+				+ ", gender=" + gender + ", birthday=" + birthday + ", email=" + email + ", phone=" + phone
+				+ ", agreement1=" + agreement1 + ", agreement2=" + agreement2 + ", agreement3=" + agreement3
+				+ ", condition=" + condition + ", rank=" + rank + ", member_date=" + member_date + ", marriage="
+				+ marriage + ", weddingdate=" + weddingdate + ", job=" + job + ", address=" + address + ", memo=" + memo
+				+ ", point=" + point + ", b_coupon_no=" + b_coupon_no + ", b_coupon_start=" + b_coupon_start
+				+ ", b_coupon_end=" + b_coupon_end + ", m_coupon_no=" + m_coupon_no + ", m_coupon_start="
+				+ m_coupon_start + ", m_coupon_end=" + m_coupon_end + ", v_coupon_no=" + v_coupon_no
+				+ ", v_coupon_start=" + v_coupon_start + ", v_coupon_end=" + v_coupon_end + ", member_outdate="
+				+ member_outdate + ", password_confirm=" + password_confirm + "]";
+	}
+
+	
+	
 }

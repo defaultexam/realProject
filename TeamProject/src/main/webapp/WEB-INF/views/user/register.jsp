@@ -12,9 +12,8 @@
 </style>
 </head>
 <body>
-	<form id="registerForm" class="form-inline" action="/register"
-		method="POST">
-		<div class="container-fluid">
+	<div class="container-fluid">
+		<form id="registerForm" class="form-inline" method="post">
 			<div class="row">
 				<div class="col-md-12">
 					<table>
@@ -83,7 +82,7 @@
 					<table>
 						<tr>
 							<td class="tdsize"><label for="birthday">생년월일*</label></td>
-							<td><input type="text" name="birthday" required="required"></td>
+							<td><input type="date" name="birthday" required="required"></td>
 						</tr>
 					</table>
 				</div>
@@ -145,7 +144,7 @@
 					<table>
 						<tr>
 							<td class="tdsize"><label for="marrydate">결혼 기념일</label></td>
-							<td><input type="text" name="marrydate"></td>
+							<td><input type="date" name="marrydate"></td>
 						</tr>
 					</table>
 				</div>
@@ -168,8 +167,8 @@
 						value="취소" id="registerCancel" class="btn btn-outline-secondary" />
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 	<script src="/resources/include/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="/resources/include/js/common.js"></script>
 	<script type="text/javascript" src="/resources/include/js/register.js"></script>
