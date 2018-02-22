@@ -46,9 +46,10 @@
 		'1', '활동중',
 		'회원', sysdate)
 	</insert>
-	
+
 	<delete id="memberDelete" parameterType="String">
 		delete from
-		member where id = #{id}
+		member where
+		id = #{id}
 	</delete>
 </mapper>

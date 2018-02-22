@@ -2,9 +2,19 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<head>
+<style>
+.logo {
+	padding-left: 15%;
+}
+</style>
+</head>
 <body>
 	<div class="container">
-		<img src="/resources/images/logo2.png">
+		<div class="logo">
+			<img src="/resources/images/logo3.png">
+		</div>
+
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<!-- BRAND -->
@@ -24,8 +34,6 @@
 				<div class="collapse navbar-collapse" id="alignment-example">
 					<!-- Links -->
 					<ul class="nav navbar-nav navbar-left">
-						<li><a href="login">로그인</a></li>
-						<li><a href="register">회원가입</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">소개 <span class="caret"></span></a>
@@ -34,9 +42,16 @@
 								<li><a href="#">드롭다운 2</a></li>
 								<li><a href="#">드롭다운 3</a></li>
 							</ul></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
 						<c:if test="${login.id != null and login.id != ''}">
 							<li>환영합니다 ${login.name}님</li>
+							<li><a href="/login/logout">로그아웃</a></li>
 						</c:if>
+						<c:if test="${login.id == null or login.id == ''}">
+							<li><a href="/login">로그인</a></li>
+						</c:if>
+						<li><a href="register">회원가입</a></li>
 					</ul>
 				</div>
 			</div>

@@ -20,7 +20,8 @@
 	padding-left: 35%;
 	padding-right: 35%;
 }
-h4, p{
+
+h4, p {
 	color: highlight;
 }
 </style>
@@ -33,23 +34,23 @@ h4, p{
 				<h2>기능 1</h2>
 				<p>기능 1</p>
 				<p>
-					<a class="btn btn-default" href="" role="button"> View details
-						&raquo;</a>
+					<a class="btn btn-warning" href="/login" role="button"> View
+						details &raquo;</a>
 				</p>
 			</div>
 			<div class="col-xs-6 col-lg-4">
 				<h2>기능 2</h2>
 				<p>기능 2</p>
 				<p>
-					<a class="btn btn-default" href="" role="button"> View details
-						&raquo;</a>
+					<a class="btn btn-warning" href="/register" role="button"> View
+						details &raquo;</a>
 				</p>
 			</div>
 			<div class="col-xs-6 col-lg-4">
 				<h2>기능 3</h2>
 				<p>기능 3</p>
 				<p>
-					<a class="btn btn-default" href="" role="button"> View details
+					<a class="btn btn-warning" href="" role="button"> View details
 						&raquo;</a>
 				</p>
 			</div>

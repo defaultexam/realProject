@@ -89,8 +89,13 @@ public class LoginController {
 				mav.setViewName("index");
 				return mav;
 			}
-
 		}
+	}
 
+	@RequestMapping("/logout")
+	public String logout(HttpSession session, HttpServletRequest request) {
+		session.invalidate();
+		session = request.getSession(true);
+		return "redirect:/";
 	}
 }

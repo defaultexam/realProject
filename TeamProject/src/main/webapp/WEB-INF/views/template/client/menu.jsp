@@ -35,8 +35,8 @@
 					<c:if test="${login.id != null and login.id != ''}">
 						<li>환영합니다 ${login.name}님</li>
 					</c:if>
-					<li class="navbar-right"><a href="login">로그인</a></li>
-					<li class="navbar-right"><a href="register">회원가입</a></li>
+					<li class="navbar-right"><a href="/login/logout">로그아웃</a></li>
+					<li class="navbar-right"><a href="/register">회원가입</a></li>
 				</ul>
 			</div>
 		</div>

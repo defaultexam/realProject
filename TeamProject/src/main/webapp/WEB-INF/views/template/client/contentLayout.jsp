@@ -15,6 +15,11 @@
 	rel="stylesheet">
 <link href="/resources/include/css/sticky-footer-navbar.css"
 	rel="stylesheet">
+<style>
+body {
+	padding-top: 20px;
+}
+</style>
 </head>
 <body>
 	<div class="container">

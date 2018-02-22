@@ -11,7 +11,7 @@ import com.restaurant.user.member.dao.MemberDAO;
 import com.restaurant.user.member.vo.MemberSecurity;
 import com.restaurant.user.member.vo.MemberVO;
 
-@Service
+@Service("MemberService")
 @Transactional
 public class MemberServiceImpl implements MemberService {
 	Logger logger = Logger.getLogger(MemberServiceImpl.class);
