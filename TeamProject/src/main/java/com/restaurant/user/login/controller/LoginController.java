@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import com.restaurant.user.login.vo.LoginVO;
 @RequestMapping("/login")
 public class LoginController {
 	Logger logger = Logger.getLogger(LoginController.class);
+	@Autowired
 	private LoginService loginService;
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -33,14 +35,14 @@ public class LoginController {
 			HttpServletRequest request) {
 		logger.info("login POST 호출 성공");
 		ModelAndView mav = new ModelAndView();
-		String userId = lvo.getId();
+		String id = lvo.getId();
 		int resultData = loginService.loginHistoryInsert(lvo);
 		if (resultData == 1) {
 			mav.addObject("errCode", 1);
 			mav.setViewName("/login");
 			return mav;
 		} else {
-			LoginVO vo = loginService.loginHistorySelect(userId);
+			LoginVO vo = loginService.loginHistorySelect(id);
 			logger.info("최근 로그인 일시 : " + new SimpleDateFormat("YYYY-MM-dd").format(vo.getLastSuccessedLogin()));
 			logger.info("retry: " + vo.getRetry());
 			/* 로그인 시도횟수가 5회가 넘으면 30초간 로그인 잠금 */

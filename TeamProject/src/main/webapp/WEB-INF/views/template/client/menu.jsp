@@ -15,14 +15,13 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="/"><img
-					src="/resources/images/logo.png" class="img-responsive" width="30px" height="30px" alt="Logo"></a>
+					src="/resources/images/logo.png" class="img-responsive"
+					width="30px" height="30px" alt="Logo"></a>
 			</div>
 			<!-- COLLAPSIBLE NAVBAR -->
 			<div class="collapse navbar-collapse" id="alignment-example">
 				<!-- Links -->
 				<ul class="nav navbar-nav navbar-left">
-					<li><a href="login">로그인</a></li>
-					<li><a href="register">회원가입</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">소개 <span class="caret"></span></a>
@@ -31,6 +30,13 @@
 							<li><a href="#">드롭다운 2</a></li>
 							<li><a href="#">드롭다운 3</a></li>
 						</ul></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<c:if test="${login.id != null and login.id != ''}">
+						<li>환영합니다 ${login.name}님</li>
+					</c:if>
+					<li class="navbar-right"><a href="login">로그인</a></li>
+					<li class="navbar-right"><a href="register">회원가입</a></li>
 				</ul>
 			</div>
 		</div>

@@ -12,6 +12,34 @@
 </style>
 </head>
 <body>
+	<!-- 아이디 중복체크 모달창 -->
+	<div id="idcheck" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">아이디 중복체크</h4>
+				</div>
+				<div class="modal-body idclass">
+					<label for="transferid">아이디*</label> <input type="text"
+						class="form-control" id="modalid" name="modalid" placeholder="아이디"
+						required="required">
+					<p class="form-control-static error"></p>
+					<button type="button" id="transferButton"
+						class="btn btn-outline-secondary">중복 확인</button>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="transferId"
+						class="btn btn-outline-secondary">확인</button>
+					<button type="button" class="btn btn-outline-secondary"
+						data-dismiss="modal">취소</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="container-fluid">
 		<form id="registerForm" class="form-inline">
 			<div class="row">
@@ -20,8 +48,10 @@
 						<tr class="idclass">
 							<td class="tdsize"><label for="id">아이디*</label></td>
 							<td><input type="text" class="form-control" id="id"
-								name="id" placeholder="아이디" required="required">
-								<button type="button" id="idConfirmBtn" class="btn btn-default">중복체크</button>
+								name="id" placeholder="아이디" required="required"
+								disabled="disabled">
+								<button type="button" id="idConfirmBtn" class="btn btn-default"
+									data-toggle="modal" data-target="#idcheck">중복체크</button>
 								<p class="form-control-static error"></p></td>
 						</tr>
 					</table>

@@ -9,7 +9,6 @@ package com.restaurant.user.login.vo;
  */
 public class LoginHistory {
 	private int idx;
-	private String id;
 	private int retry;
 	private long lastFailedLogin;
 	private long lastSuccessedLogin;
@@ -18,22 +17,13 @@ public class LoginHistory {
 	public LoginHistory() {
 	}
 
-	public LoginHistory(int idx, String id, int retry, long lastFailedLogin, long lastSuccessedLogin, String clientIP) {
+	public LoginHistory(int idx, int retry, long lastFailedLogin, long lastSuccessedLogin, String clientIP) {
 		super();
 		this.idx = idx;
-		this.id = id;
 		this.retry = retry;
 		this.lastFailedLogin = lastFailedLogin;
 		this.lastSuccessedLogin = lastSuccessedLogin;
 		this.clientIP = clientIP;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public int getIdx() {

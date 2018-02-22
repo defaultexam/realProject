@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="icon" href="/resources/images/common/icon.png">
+<!-- <link rel="icon" href="/resources/images/common/icon.png"> -->
 <title><tiles:getAsString name="title" /></title>
 <link href="/resources/include/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -25,10 +25,6 @@
 		<tiles:insertAttribute name="footer" />
 	</footer>
 	<!-- JS 파일 -->
-	<script
-		src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
-	<script
-		src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
 	<script src="/resources/include/js/jquery-3.3.1.min.js"></script>
 	<script src="/resources/include/dist/js/bootstrap.min.js"></script>
 </body>

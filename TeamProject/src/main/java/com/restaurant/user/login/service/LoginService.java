@@ -12,4 +12,5 @@ public interface LoginService {
 	public int loginHistoryUpdate(LoginVO lvo);
 
 	public LoginVO loginHistorySelect(String userId);
+
 }

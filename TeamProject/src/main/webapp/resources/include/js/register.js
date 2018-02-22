@@ -1,4 +1,3 @@
-
 function errCodeCheck() {
 	var errCode = '<c:out value="${errCode}" />';
 	if (errCode != '') {
@@ -29,6 +28,7 @@ function passwordCheck() {
 function idPwdCheck() {
 	var userId = $("#id").val();
 	var userPw = $("#password").val();
+	if (userId == "") return true;
 	if (userPw.indexOf(userId) > -1) {
 		alert("비밀번호에 아이디를 포함할 수 없습니다.");
 		$("#password").val("");
@@ -44,11 +44,15 @@ $(function() {
 	errCodeCheck();
 	// 사용자에게 요구사항에 대한 문자열로 배열 초기화.
 	var message = [
-		"영문,숫자만 가능. 6 ~ 12자로 입력해 주세요",
-		"영문,숫자,특수문자만 가능. 8 ~ 15자 입력해 주세요.",
-		"비밀번호와 비밀번호 확인란은 값이 일치해야 합니다.",
-		"", "",
-		"- 포함 입력해 주세요. 예시) 010-0000-0000" ];
+		"영문,숫자만 가능. 6 ~ 12자로 입력해 주세요", /*모달*/
+		"", /*아이디*/
+		"영문,숫자,특수문자만 가능. 8 ~ 15자 입력해 주세요.", /*비밀번호*/
+		"비밀번호와 비밀번호 확인란은 값이 일치해야 합니다.", /*비밀번호 확인*/
+		"", /*이름*/
+		"", /*이메일*/
+		"- 포함 입력해 주세요. 예시) 010-0000-0000", /*전화번호*/
+		"" /*주소*/
+	];
 	$('.error').each(function(index) {
 		$('.error').eq(index).html(message[index]);
 	});
@@ -60,32 +64,40 @@ $(function() {
 	let iddiv = document.getElementById("iddiv");
 	let passdiv = document.getElementById("passdiv");
 	let repassdiv = document.getElementById("repassdiv");
-	$("#idConfirmBtn").click(
+	let id = document.getElementById("modalid");
+	$("#transferButton").click(
 		function() {
-			if (!formCheck($('#id'), $('.error:eq(0)'), "아이디를"))
+			if (!formCheck($('#modalid'), $('.error:eq(0)'), "아이디를"))
 				return;
-			else if (!inputVerify(0, '#id', '.error:eq(0)'))
+			else if (!inputVerify(0, '#modalid', '.error:eq(0)'))
 				return;else {
 				$.ajax({
 					url : "/register/userIdConfirm",
 					type : "post",
-					data : "userId=" + $("#id").val(),
+					data : "userId=" + $("#modalid").val(),
 					error : function() {
 						alert('사이트 접속 문제로 정상 작동하지 못하였습니다. 잠시 후 다시 시도해 주세요.');
 					},
 					success : function(resultData) {
 						console.log("resultData : " + resultData);
 						if (resultData == "1") {
-							$("#id").parents(
+							$("#modalid").parents(
 								".idclass").find(
 								".error").html(
 								"현재 사용 중인 아이디입니다.");
 							iddiv.classList.add("form-group", "has-warning");
 						} else if (resultData == "2") {
+							$("#modalid").parents(
+								".idclass").find(
+								".error").html(
+								"사용 가능한 아이디입니다.");
 							$("#id").parents(
 								".idclass").find(
 								".error").html(
 								"사용 가능한 아이디입니다.");
+							$("#id").parents(
+								".idclass").find(
+								".error").css("color", "#2F9D27");
 							idConfirm = 2;
 							iddiv.classList.remove('has-error');
 							iddiv.classList.remove('has-warning');
@@ -95,7 +107,16 @@ $(function() {
 				});
 			}
 		});
-
+	$("#transferId").click(
+		function() {
+			if (idConfirm != 2) {
+				alert("아이디 중복 체크 진행해 주세요.");
+				return;
+			} else {
+				$("#id").val($(id).val());
+				$("#idcheck").modal().toggle();
+			}
+		});
 	$("#id").bind("blur", function() {
 		if (!formCheck($('#id'), $('.error:eq(0)'), "아이디를")) {
 			iddiv.classList.add("form-group", "has-error");

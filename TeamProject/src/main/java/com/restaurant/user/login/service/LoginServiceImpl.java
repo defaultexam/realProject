@@ -10,40 +10,42 @@ import com.restaurant.user.login.vo.LoginVO;
 import com.restaurant.user.member.dao.MemberDAO;
 import com.restaurant.user.member.vo.MemberSecurity;
 
-@Service
+@Service("LoginService")
 @Transactional
 public class LoginServiceImpl implements LoginService {
 	@Autowired
-	private LoginDAO loginDao;
+	private MemberDAO memberDAO;
 	@Autowired
-	private MemberDAO memberDao;
-	
+	private LoginDAO loginDAO;
+
 	@Override
 	public LoginVO userIdSelect(String userId) {
-		return loginDao.userIdSelect(userId);
+		return loginDAO.userIdSelect(userId);
 	}
+
 	@Override
 	public LoginVO loginSelect(String userId, String userPw) {
 		LoginVO vo = null;
-		MemberSecurity sec = memberDao.securitySelect(userId);
+		MemberSecurity sec = memberDAO.securitySelect(userId);
 		if (sec != null) {
 			userPw = new String(OpenCrypt.getSHA256(userPw, sec.getSalt()));
 			LoginVO lvo = new LoginVO();
 			lvo.setId(userId);
 			lvo.setPassword(userPw);
-			vo = loginDao.loginSelect(lvo);
+			vo = loginDAO.loginSelect(lvo);
 		}
 		return vo;
 	}
+
 	@Override
 	public int loginHistoryInsert(LoginVO lvo) {
-		int result;
+		int result = 0;
 		if (userIdSelect(lvo.getId()) == null) {
 			result = 1;
 		} else {
 			LoginVO vo = loginHistorySelect(lvo.getId());
 			if (vo == null) {
-				loginDao.loginHistoryInsert(lvo);
+				loginDAO.loginHistoryInsert(lvo);
 			}
 			result = 2;
 		}
@@ -52,12 +54,12 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public int loginHistoryUpdate(LoginVO lvo) {
-		return loginDao.loginHistoryUpdate(lvo);
+		return loginDAO.loginHistoryUpdate(lvo);
 	}
 
 	@Override
 	public LoginVO loginHistorySelect(String userId) {
-		return loginDao.loginHistorySelect(userId);
+		return loginDAO.loginHistorySelect(userId);
 	}
 
 }

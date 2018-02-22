@@ -8,7 +8,6 @@ import com.restaurant.user.login.vo.LoginVO;
 
 @Repository
 public class LoginDAOImpl implements LoginDAO {
-
 	@Autowired
 	private SqlSession session;
 
