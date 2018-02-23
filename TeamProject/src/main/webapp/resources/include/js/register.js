@@ -49,6 +49,7 @@ $(function() {
 		"영문,숫자,특수문자만 가능. 8 ~ 15자 입력해 주세요.", /*비밀번호*/
 		"비밀번호와 비밀번호 확인란은 값이 일치해야 합니다.", /*비밀번호 확인*/
 		"", /*이름*/
+		"", /*생년월일*/
 		"", /*이메일*/
 		"- 포함 입력해 주세요. 예시) 010-0000-0000", /*전화번호*/
 		"" /*주소*/
@@ -56,8 +57,9 @@ $(function() {
 	$('.error').each(function(index) {
 		$('.error').eq(index).html(message[index]);
 	});
-	$('#modalid, #id, #password, #repassword, #name, #birthday, #email, #phone, #address').bind("focus", function() {
-		var idx = $("#modalid, #id, #password, #repassword, #name, #birthday, #email, #phone, #address").index(this);
+	/*모달 0, 아이디 1, 비밀번호 2, 확인 3, 이름 4, 생년월일 5, 이메일 6, 전화번호 7, 주소 8 */
+	$('#modalid, #id, #password, #repassword, #name, #birthday, #email2, #phone, #address').bind("focus", function() {
+		var idx = $("#modalid, #id, #password, #repassword, #name, #birthday, #email2, #phone, #address").index(this);
 		$(this).parents(".form-group").find(".error").html(message[idx]);
 		$(this).parents(".form-group").find(".error").css("color", "#000000");
 	});
@@ -163,16 +165,24 @@ $(function() {
 		if (!formCheck($('#name'), $('.error:eq(4)'), "이름을"))
 			return;
 	});
-	$("#email").bind("blur", function() {
-		if (!formCheck($('#email1'), $('.error:eq(5)'), "이메일 주소를"))
+	$("#birthday").bind("blur", function() {
+		if (!formCheck($('#birthday'), $('.error:eq(5)'), "생년월일을"))
+			return;
+	});
+	$("#email1").bind("blur", function() {
+		if (!formCheck($('#email1'), $('.error:eq(6)'), "이메일 주소를"))
+			return;
+	});
+	$("#email2").bind("blur", function() {
+		if (!formCheck($('#email2'), $('.error:eq(6)'), "이메일 주소를"))
 			return;
 	});
 	$("#phone").bind("blur", function() {
-		if (!formCheck($('#phone'), $('.error:eq(6)'), "전화번호를"))
+		if (!formCheck($('#phone'), $('.error:eq(7)'), "전화번호를"))
 			return;
 	});
-	$("#address").bind("blur", function() {
-		if (!formCheck($('#address'), $('.error:eq(7)'), "주소를"))
+	$("#jibunAddress").bind("blur", function() {
+		if (!formCheck($('#jibunAddress'), $('.error:eq(8)'), "추가 입력을"))
 			return;
 	});
 	/* 확인 버튼 클릭 시 처리 이벤트 */
@@ -198,13 +208,17 @@ $(function() {
 				return;
 			else if (!formCheck($('#name'), $('.error:eq(4)'), "이름을"))
 				return;
-			else if (!formCheck($('#email1'), $('.error:eq(4)'), "이메일 주소를"))
+			else if (!formCheck($('#birthday'), $('.error:eq(5)'), "생년월일을"))
 				return;
-			else if (!formCheck($('#phone'), $('.error:eq(5)'), "전화번호를"))
+			else if (!formCheck($('#email1'), $('.error:eq(6)'), "이메일 주소를"))
 				return;
-			else if (!inputVerify(2, '#phone', '.error:eq(5)'))
+			else if (!formCheck($('#email2'), $('.error:eq(6)'), "이메일 주소를"))
 				return;
-			else if (!formCheck($('#address'), $('.error:eq(6)'), "주소를"))
+			else if (!formCheck($('#phone'), $('.error:eq(7)'), "전화번호를"))
+				return;
+			else if (!inputVerify(2, '#phone', '.error:eq(7)'))
+				return;
+			else if (!formCheck($('#jibunAddress'), $('.error:eq(8)'), "추가 입력을"))
 				return;
 			else if (idConfirm != 2) {
 				alert("아이디 중복 체크 진행해 주세요.");

@@ -11,7 +11,7 @@
 }
 
 .tdsize2 {
-	width: 550px;
+	width: 600px;
 }
 
 .contentalign {
@@ -118,10 +118,10 @@
 					<table class="table-hover">
 						<tr>
 							<td class="tdsize"><label for="gender">성별*</label></td>
-							<td class="tdsize2"><input type="radio" id="gender"
-								name="gender" value="1" checked="checked" /> 남자
+							<td class="tdsize2"><input type="radio" name="gender"
+								value="1" checked="checked" /> 남자
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"
-								id="gender" name="gender" value="2" /> 여자</td>
+								name="gender" value="2" /> 여자</td>
 						</tr>
 					</table>
 				</div>
@@ -132,7 +132,8 @@
 						<tr>
 							<td class="tdsize"><label for="birthday">생년월일*</label></td>
 							<td class="tdsize2"><input type="date" id="birthday"
-								name="birthday" required="required" class="form-control"></td>
+								name="birthday" required="required" class="form-control">
+								<p class="form-control-static error"></p></td>
 						</tr>
 					</table>
 				</div>
@@ -146,9 +147,9 @@
 								id="email1" name="email1" placeholder="" required="required">
 								<label for="email2">@</label> <input type="text"
 								class="form-control" id="email2" name="email2" placeholder=""
-								required="required">
-								<p class="form-control-static error"></p> <input type="hidden"
-								id="email" name="email"></td>
+								required="required"> <input type="hidden" id="email"
+								name="email">
+								<p class="form-control-static error"></p></td>
 						</tr>
 					</table>
 				</div>
@@ -158,7 +159,7 @@
 					<table class="table-hover">
 						<tr>
 							<td class="tdsize"><label for="phone">전화번호*</label></td>
-							<td class="tdsize2"><input type="text" class="form-control"
+							<td class="tdsize2"><input type="tel" class="form-control"
 								id="phone" name="phone" placeholder="" required="required">
 								<p class="form-control-static error"></p></td>
 						</tr>
@@ -180,8 +181,9 @@
 												onclick="execDaumPostcode()" type="button">
 												<span class="glyphicon glyphicon-search" aria-hidden="true">
 												</span>주소 검색
-											</button> <br />
+											</button>
 										</span>
+
 									</div>
 									<input type="text" class="form-control" name="roadAddress"
 										id="roadAddress" placeholder="도로명주소" required="required"

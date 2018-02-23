@@ -32,11 +32,17 @@
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+					<!-- 로그인 했을 때 -->
 					<c:if test="${login.id != null and login.id != ''}">
 						<li>환영합니다 ${login.name}님</li>
+						<li><a href="/">내 정보관리</a></li>
+						<li><a href="/login/logout">로그아웃</a></li>
 					</c:if>
-					<li class="navbar-right"><a href="/login/logout">로그아웃</a></li>
-					<li class="navbar-right"><a href="/register">회원가입</a></li>
+					<!-- 비회원 -->
+					<c:if test="${login.id == null or login.id == ''}">
+						<li><a href="/login">로그인</a></li>
+						<li class="navbar-right"><a href="/register">회원가입</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
